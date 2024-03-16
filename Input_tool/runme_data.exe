@@ -1,0 +1,22 @@
+# Inputs::  1)basis.dat 
+#           2)lmngeo_in.dat
+#           3)cmatupin.dat
+#           4)cmatdwin.dat        { Extracted from GAMESS. Sample is available in the directory }
+#
+#
+# Outputs::    1)cmatup.dat 
+#              2)cmatdw.dat
+#              3)geo.dat 
+#              4)lmn.dat
+#              9)npg1.dat
+#             10)exponent.dat
+#             11)precoef.dat
+#             12)npg1.dat    
+#
+
+gfortran -o cmat_arrange mo_rearrange.f90
+./cmat_arrange
+./cmat_arrange
+
+g++ DRIVER.C -o input_script
+./input_script  

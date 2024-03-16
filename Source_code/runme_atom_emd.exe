@@ -1,0 +1,529 @@
+#                                                                         This Script written by Suman Hazra
+#                                                                         Date:16/12/2019
+#                                                                         Place: IISER-Kolkata
+
+
+
+
+
+#  One may use this script to execute information and complexity only for atoms form (H to AR) (As an example {B3LYP,6-311G**} basis and functional are included for test run). 
+# Needed Input files :: 1) cmatup.dat 
+#                       2) cmatdw.dat      !! FOR UHF CALCULATION BOTH FILES ARE NEASSERY.BUT FOR RHF  
+#                                          !! ONE MAY USE ONLY ONE OF THEM.BUT ANOTHER FILE SHOULD BE EXSIST IN THE SOURCE CODE DIRECTORY FOR SMOOTH RUN.  
+#
+#                       3)geo.dat
+#                       4)lmn.dat
+#                       5)alpha_beta_method.dat
+#                       6)noa_npg_noc_norb.dat
+#                       7)grid_point.dat
+#                       8)atomic_number.dat
+#                       9)npg1.dat
+#                      10)exponent.dat
+#                      11)precoef.dat
+#                      12)npg1.dat                      
+
+#  One can easly generate those input files by executing " g++ DRIVER.C -o input_script 
+#                                                          ./input_script".                        
+# But I recommend you for this, use 'Input_tool' Directory.
+
+# As a output you will get complexity.dat, information.dat and Moments.dat files. 
+# For 5 to 9 you have to put explicite values. For noc and npg you may see 'npgnoc', which will be appear in 'Input_tool' Directory.   
+
+
+
+
+# gfortran -g -pg psix.f90 basisfn.f90 factor.f90 gauss_legendre.f90
+
+
+echo '________________________________________________________________'
+echo 'JOB IS RUNNING ON HOST :' "$HOSTNAME"
+echo 'UNDER THE OPERATING SYSTEM LINUX'
+lscpu | egrep 'Model name|Socket|Thread|NUMA|CPU\(s\)'
+echo
+date
+echo '_________________________________________________________________'
+
+
+
+echo '_________________________________________________________________'
+echo 'JOB 1 :: Being runing for Hydogen'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/h_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/h_b3lyp
+
+rm *.dat
+echo 'JOB 1 :: Finished for Hydogen'
+echo '_________________________________________________________________'
+
+
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 2 :: Being runing for Helium'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/he_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/he_b3lyp
+
+rm *.dat
+echo 'JOB 2 :: Finished for Helium'
+echo '_________________________________________________________________'
+
+
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 3 :: Being runing for Lithium'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/li_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/li_b3lyp
+
+rm *.dat
+echo 'JOB 3 :: Finished for Lithium'
+echo '_________________________________________________________________'
+
+
+
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 4 :: Being runing for Beryllium'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/be_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/be_b3lyp
+
+rm *.dat
+echo 'JOB 4 :: Finished for Beryllium'
+echo '_________________________________________________________________'
+
+
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 5 :: Being runing for Boron'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/boron_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/boron_b3lyp
+
+rm *.dat
+echo 'JOB 5 :: Finished for Boron'
+echo '_________________________________________________________________'
+
+
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 6 :: Being runing for Carbon'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/carbon_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/carbon_b3lyp
+
+rm *.dat
+echo 'JOB 6 :: Finished for Carbon'
+echo '_________________________________________________________________'
+
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 7 :: Being runing for Nitrogen'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/N_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/N_b3lyp
+
+rm *.dat
+echo 'JOB 7 :: Finished for Nitrogen'
+echo '_________________________________________________________________'
+
+
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 8 :: Being runing for Oxygen'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/N_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/N_b3lyp
+
+rm *.dat
+echo 'JOB 8 :: Finished for Oxygen'
+echo '_________________________________________________________________'
+
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 9 :: Being runing for Fluorine'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/F_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/F_b3lyp
+
+rm *.dat
+echo 'JOB 9 :: Finished for Fluorine'
+echo '_________________________________________________________________'
+
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 10 :: Being runing for Neon'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/Ne_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/Ne_b3lyp
+
+rm *.dat
+echo 'JOB 10 :: Finished for Neon'
+echo '_________________________________________________________________'
+
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 11 :: Being runing for Sodium'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/Na_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/Na_b3lyp
+
+rm *.dat
+echo 'JOB 11 :: Finished for Sodium'
+echo '_________________________________________________________________'
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 12 :: Being runing for Magnesium'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/Mg_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/Mg_b3lyp
+
+rm *.dat
+echo 'JOB 12 :: Finished for Magnesium'
+echo '_________________________________________________________________'
+
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 13 :: Being runing for Aluminum'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/Al_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/Al_b3lyp
+
+rm *.dat
+echo 'JOB 13 :: Finished for Aluminum'
+echo '_________________________________________________________________'
+
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 14 :: Being runing for Silicon '
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/Si_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/Si_b3lyp
+
+rm *.dat
+echo 'JOB 14 :: Finished for Silicon '
+echo '_________________________________________________________________'
+
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 15 :: Being runing for Phosphorus'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/P_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/P_b3lyp
+
+rm *.dat
+echo 'JOB 15 :: Finished for Phosphorus'
+echo '_________________________________________________________________'
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 16 :: Being runing for Sulfur '
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/S_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/S_b3lyp
+
+rm *.dat
+echo 'JOB 16 :: Finished for Sulfur '
+echo '_________________________________________________________________'
+
+
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 17 :: Being runing for Chlorine'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/cl_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/cl_b3lyp
+
+rm *.dat
+echo 'JOB 17 :: Finished for Chlorine'
+echo '_________________________________________________________________'
+
+
+
+
+echo
+echo '_________________________________________________________________'
+echo 'JOB 18 :: Being runing for Argon'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/Ar_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+# g++ DRIVER.C -o input_script    #For executing this command two input files should be here 
+#./input_script                   #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_atom_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/atoms_input/Ar_b3lyp
+
+rm *.dat
+echo 'JOB 18 :: Finished for Argon'
+echo '_________________________________________________________________'
+
+
+
+echo
+echo
+echo "......................................."
+echo "PROGRAM RUN SUCCESSFULLY:"
+echo "PROGRAM DEVOLOPED BY......."
+echo "SUMAN HAZRA"
+echo "PLACE: IISER-KOLKATA"
+echo "----------THANK YOU-----------"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+

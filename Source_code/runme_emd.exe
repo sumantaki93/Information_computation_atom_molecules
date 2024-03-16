@@ -1,0 +1,9 @@
+
+
+# gfortran -g -pg psix.f90 basisfn.f90 factor.f90 gauss_legendre.f90
+#g++ DRIVER.C -o input_script
+#./input_script 
+ 
+gfortran -O3 -fopenmp -o emd_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+#./emd_parallel
+ 

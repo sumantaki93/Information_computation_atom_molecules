@@ -1,0 +1,248 @@
+#                                                  This code written by Suman Hazra
+#                                                  Date: 17/12/2019
+#                                                  Place:: IISER-KOLKATA
+
+
+
+
+
+
+
+
+
+
+#  One may use this script to execute information and complexity only for few diatomic molecules (As an example {B3LYP,6-311G**} basis and functional are included for test run). 
+# Needed Input files :: 1) cmatup.dat 
+#                       2) cmatdw.dat      !! FOR UHF CALCULATION BOTH FILES ARE NEASSERY.BUT FOR RHF  
+#                                          !! ONE MAY USE ONLY ONE OF THEM.BUT ANOTHER FILE SHOULD BE EXSIST IN THE SOURCE CODE DIRECTORY FOR SMOOTH RUN.  
+#
+#                       3)geo.dat
+#                       4)lmn.dat
+#                       5)alpha_beta_method.dat
+#                       6)noa_npg_noc_norb.dat
+#                       7)grid_point.dat
+#                       8)atomic_number.dat
+#                       9)npg1.dat
+#                      10)exponent.dat
+#                      11)precoef.dat
+#                      12)npg1.dat                      
+
+#  One can easly generate those input files by executing " g++ DRIVER.C -o input_script 
+#                                                          ./input_script".                        
+# But I recommend you for this, use 'Input_tool' Directory.
+
+# As a output you will get complexity.dat, information.dat and Moments.dat files. 
+# For 5 to 9 you have to put explicite values. For noc and npg you may see 'npgnoc', which will be appear in 'Input_tool' Directory.
+
+echo '________________________________________________________________'
+echo 'JOB IS RUNNING ON HOST :' "$HOSTNAME"
+echo 'UNDER THE OPERATING SYSTEM LINUX'
+lscpu | egrep 'Model name|Socket|Thread|NUMA|CPU\(s\)'
+echo
+date
+echo '_________________________________________________________________'
+
+
+
+   
+echo '_________________________________________________________________'
+echo 'JOB 1 :: Being runing for H2 Molecule'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Diatomic_Molecules/H2_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+g++ DRIVER.C -o input_script      #For executing this command two input files should be here 
+./input_script                    #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_mol_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_mol_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Diatomic_Molecules/H2_b3lyp
+
+rm *.dat
+echo 'JOB 1 :: Finished for H2 Molecule'
+echo '_________________________________________________________________'
+
+
+
+
+echo '_________________________________________________________________'
+echo 'JOB 2 :: Being runing for CO Molecule'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Diatomic_Molecules/CO_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+g++ DRIVER.C -o input_script      #For executing this command two input files should be here 
+./input_script                    #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_mol_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_mol_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Diatomic_Molecules/CO_b3lyp
+
+rm *.dat
+echo 'JOB 2 :: Finished for CO Molecule'
+echo '_________________________________________________________________'
+
+
+
+
+echo '_________________________________________________________________'
+echo 'JOB 3 :: Being runing for N2 Molecule'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Diatomic_Molecules/N2_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+g++ DRIVER.C -o input_script      #For executing this command two input files should be here 
+./input_script                    #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_mol_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_mol_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Diatomic_Molecules/N2_b3lyp
+
+rm *.dat
+echo 'JOB 3 :: Finished for N2 Molecule'
+echo '_________________________________________________________________'
+
+
+
+
+
+echo '_________________________________________________________________'
+echo 'JOB 4 :: Being runing for N2 Molecule'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Diatomic_Molecules/O2_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+g++ DRIVER.C -o input_script      #For executing this command two input files should be here 
+./input_script                    #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_mol_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_mol_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Diatomic_Molecules/O2_b3lyp
+
+rm *.dat
+echo 'JOB 3 :: Finished for N2 Molecule'
+echo '_________________________________________________________________'
+
+
+
+
+echo '_________________________________________________________________'
+echo 'JOB 5 :: Being runing for F2 Molecule'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Diatomic_Molecules/F2_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+g++ DRIVER.C -o input_script      #For executing this command two input files should be here 
+./input_script                    #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_mol_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_mol_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Diatomic_Molecules/F2_b3lyp
+
+rm *.dat
+echo 'JOB 5 :: Finished for F2 Molecule'
+echo '_________________________________________________________________'
+
+
+
+
+
+
+echo '_________________________________________________________________'
+echo 'JOB 6 :: Being runing for Hcl Molecule'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Diatomic_Molecules/HCL_B3LYP
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+#g++ DRIVER.C -o input_script      #For executing this command two input files should be here 
+#./input_script                    #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_mol_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_mol_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Diatomic_Molecules/HCL_B3LYP
+
+rm *.dat
+echo 'JOB 6 :: Finished for Hcl Molecule'
+echo '_________________________________________________________________'
+
+
+
+
+
+
+
+echo '_________________________________________________________________'
+echo 'JOB 7 :: Being runing for Cl2 Molecule'
+
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Diatomic_Molecules/Cl2_b3lyp
+cp *.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code 
+cd /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Source_code
+
+
+g++ DRIVER.C -o input_script      #For executing this command two input files should be here 
+./input_script                    #1) basis.dat  
+                                  #2) lmngeo_in.dat
+
+ 
+gfortran -O3 -fopenmp -o emd_mol_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss_legendre.f90 main_cal.f90 
+./emd_mol_parallel
+ 
+cp complexity.dat information.dat Moments.dat /home/suman/suman_momentum/fisher_shannon_c_fortran_interface/Diatomic_Molecules/Cl2_b3lyp
+
+rm *.dat
+echo 'JOB 7 :: Finished for Cl2 Molecule'
+echo '_________________________________________________________________'
+
+
+
+
+
+
+         echo
+         echo
+         echo "......................................."
+         echo "PROGRAM RUN SUCCESSFULLY:"
+         echo "PROGRAM DEVOLOPED BY......."
+         echo "SUMAN HAZRA"
+         echo "PLACE: IISER-KOLKATA"
+         echo "----------THANK YOU-----------"
+
+
+
+
+
+
+
+
+
+

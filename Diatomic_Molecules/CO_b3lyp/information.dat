@@ -1,0 +1,10 @@
+                         ___________INFORMATION THEORETIC MEASURE FOR POSITION SPACE____________
+
+        SHANNON(N)          SHANNON(N=1)         FISHER(N)          FISHER(N=1)         ONICESCU(N)        ONICESCU(N=1)
+       0.8523892E+01       0.3247906E+01       0.7000963E+03       0.5000698E+02       0.1128455E+03       0.5757449E+00
+
+
+                         ___________INFORMATION THEORETIC MEASURE FOR MOMENTUM SPACE____________
+
+        SHANNON(N)          SHANNON(N=1)         FISHER(N)          FISHER(N=1)         ONICESCU(N)        ONICESCU(N=1)
+       0.4284652E+02       0.5699523E+01       0.3621637E+02       0.2586883E+01       0.3650130E+01       0.1862311E-01
