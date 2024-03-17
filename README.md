@@ -1,5 +1,5 @@
 
-#  One may use this script to execute information and complexity for atoms or molecules form  (As an example {B3LYP,6-311G**} basis and functional are included for test run). 
+#  One may use this script to execute information and complexity for atoms or molecules (As an example {B3LYP,6-311G**} basis and functional are included for test run). 
 # Needed Input files:: 1) cmatup.dat (AO/MO, DFT/HF) 
 #                       2) cmatdw.dat (AO/MO, DFT/HF)               !! FOR UHF CALCULATION BOTH FILES ARE NECESSARY. BUT FOR RHF  
 #                                                                   !! ONE MAY USE ONLY ONE OF THEM. BUT ANOTHER FILE SHOULD BE AVAILABLE IN THE SOURCE CODE DIRECTORY FOR SMOOTH RUN.  
@@ -18,7 +18,7 @@
 # For 5 to 9 you have to put explicit values. For 'noc' and 'npg' you may see 'npgnoc', which will appear in the 'Input tool' Directory.   
 
 
-
+# Install Open MP 
  
 #gfortran -O3 -fopenmp -o emd atom parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss legendre.f90 main cal.f90 
 #./emd atom parallel
