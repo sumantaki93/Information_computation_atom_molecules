@@ -23,9 +23,7 @@ Needed Input files::  1) cmatup.dat** (AO/MO, DFT/HF)
  For unrestricted calculations both files (up and down) are necessary, but for restricted cases, one can use any one of them (up or down).  
  
 Install Open MP 
-----------------
-Provide:  NUM. OF CPUS        MAX NUM. OF CPUS
-----------
+Provide  Num of CPUs and the maximum number of CPUs 
 
 gfortran -O3 -fopenmp -o emd atom parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss legendre.f90 main cal.f90 
 ./emd atom parallel
