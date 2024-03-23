@@ -397,8 +397,6 @@
           if ( mod(i,nphi).eq.0) then              
           iph=nphi
           end if
-         !! write(*,*) ip,ith,iph,i
-         !! write(*,*) ll(i)
  
         px = rgd(ip)*sin(tgd(ith))*cos(pgd(iph))
         py = rgd(ip)*sin(tgd(ith))*sin(pgd(iph))
@@ -431,7 +429,7 @@
 
 
        modsq_grad_density(0,i)=abs(grad_density_x(0,i)*grad_density_x(0,i))+&
-       &abs(grad_density_y(0,i)*grad_density_y(0,i))+&                             !! TEST FOR CCG GRID
+       &abs(grad_density_y(0,i)*grad_density_y(0,i))+&                            
        &abs(grad_density_z(0,i)*grad_density_z(0,i))
            
 
