@@ -19,8 +19,12 @@ Input files are as follows
 9) npg1.dat  
 10) exponent.dat  
 11) precoef.dat  
-12) CPU.text  
-  
+12) CPU.text
+
+ Then given code will generate the two following files for final outputs   
+ 1) 'information.dat'  
+ 2) 'complexity.dat'   
+ 
   
   
 **For unrestricted calculations both files (up and down) are necessary, but for restricted cases, one can use any one of them (up or down).    
