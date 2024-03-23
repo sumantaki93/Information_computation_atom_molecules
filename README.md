@@ -26,7 +26,7 @@ For unrestricted calculations both files (up and down) are necessary, but for re
  
 Install Open MP, then provide the Num of CPUs and the maximum number of CPUs\ 
 
-Commands to run/
+Commands to run\
 gfortran -O3 -fopenmp -o emd atom parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss legendre.f90 main cal.f90 / 
 ./emd atom parallel
 
