@@ -5,18 +5,18 @@ As a clear instruction, this code provides no further scripts to generate the se
 
 
 One may use this script to execute information and complexity for atoms or molecules (As an example {B3LYP,6-311G**} basis and functional are included for a test run).\
-Needed Input files::  1) cmatup.dat** (AO/MO, DFT/HF) 
-                      2) cmatdw.dat** (AO/MO, DFT/HF)               
-                      3) geo.dat
-                      4) lmn.dat
-                      5) alpha beta method.dat
-                      6) noa npg noc norb.dat
-                      7) grid point.dat
-                      8) atomic number.dat
-                      9) npg1.dat
-                      10 )exponent.dat
-                      11) precoef.dat 
-                      12) CPU.text 
+Needed Input files::  1) cmatup.dat** (AO/MO, DFT/HF)\
+                      2) cmatdw.dat** (AO/MO, DFT/HF)\             
+                      3) geo.dat\
+                      4) lmn.dat\
+                      5) alpha beta method.dat\
+                      6) noa npg noc norb.dat\
+                      7) grid point.dat\
+                      8) atomic number.dat\
+                      9) npg1.dat\
+                      10 )exponent.dat\
+                      11) precoef.dat\
+                      12) CPU.text\ 
 
 
 
