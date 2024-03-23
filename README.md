@@ -12,7 +12,7 @@ Input files are as follows
 2) cmatdw.dat** (AO/MO, DFT/HF)  
 3) geo.dat  
 4) lmn.dat  
-5) alpha beta method.dat (method=1 or 2 for spin-restricted or unrestricted calculations)
+5) alpha beta method.dat (Put method=1 or 2 for spin-restricted or unrestricted calculations)
 6) noa npg noc norb.dat  
 7) grid point.dat  
 8) atomic number.dat  
