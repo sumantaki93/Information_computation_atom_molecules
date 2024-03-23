@@ -4,7 +4,7 @@ As a clear instruction, this code provides no further scripts to generate the in
  
 
 
-Some calculations conducted using the DFT-B3LYP method and 6-311G** basis for a couple of atoms and molecules are attached as examples. To execute information and complexity for atoms or molecules follow the given instructions. 
+Some calculations conducted using the DFT-B3LYP method and 6-311G** basis for a couple of atoms and molecules are attached as examples. To execute information and complexity for the chemical systems follow the given instructions. 
   
 Input and output files
 -----------------------------
