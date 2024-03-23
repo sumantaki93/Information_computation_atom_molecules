@@ -4,9 +4,9 @@ As a clear instruction, this code provides no further scripts to generate the in
  
 
 
-One may use this script to execute information and complexity for atoms or molecules. (Some calculations conducted using the DFT-B3LYP method and 6-311G** basis for a couple of atoms and molecules are attached as examples)  
+Some calculations conducted using the DFT-B3LYP method and 6-311G** basis for a couple of atoms and molecules are attached as examples. To execute information and complexity for atoms or molecules follow the given instructions. 
   
-Input files are as follows  
+Input and output files
 -----------------------------
 1) cmatup.dat** (AO/MO, DFT/HF)  
 2) cmatdw.dat** (AO/MO, DFT/HF)  
