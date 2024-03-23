@@ -4,7 +4,7 @@ As a clear instruction, this code provides no further scripts to generate the se
  
 
 
-One may use this script to execute information and complexity for atoms or molecules (As an example {B3LYP,6-311G**} basis and functional are included for a test run).
+One may use this script to execute information and complexity for atoms or molecules (As an example {B3LYP,6-311G**} basis and functional are included for a test run).\
 Needed Input files::  1) cmatup.dat** (AO/MO, DFT/HF) 
                       2) cmatdw.dat** (AO/MO, DFT/HF)               
                       3) geo.dat
