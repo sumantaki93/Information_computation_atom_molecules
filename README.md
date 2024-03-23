@@ -4,7 +4,7 @@ As a clear instruction, this code provides no further scripts to generate the in
  
 
 
-One may use this script to execute information and complexity for atoms or molecules. (As the examples {B3LYP,6-311G**} basis and functional are included for a couple of atoms and molecules as the test run)  
+One may use this script to execute information and complexity for atoms or molecules. (For examples {B3LYP,6-311G**} basis and functional are included for a couple of atoms and molecules as the test run)  
   
 Input files are as follows  
 -----------------------------
