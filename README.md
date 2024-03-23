@@ -35,10 +35,13 @@ Commands to run
 -------------------------
 Install Open MP and Fortran compiler (if necessary)
 
-gfortran -O3 -fopenmp -o emd atom parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss legendre.f90 main cal.f90  
-./emd atom parallel
+For atomic systems    
+gfortran -O3 -fopenmp -o emd_atom_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss legendre.f90 main cal.f90  
+./emd_atom_parallel
 
-
+For  molecules   
+gfortran -O3 -fopenmp -o emd_mol_parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss legendre.f90 main cal.f90  
+./emd_mol_parallel
 
  
 
