@@ -21,7 +21,7 @@ Input files are as follows
 11) precoef.dat  
 12) CPU.text
 
- Then given code will generate the two following files for final outputs   
+ Then given code will generate the two following files as the final outputs   
  1) 'information.dat'  
  2) 'complexity.dat'   
  
