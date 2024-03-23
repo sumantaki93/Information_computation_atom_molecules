@@ -369,51 +369,6 @@
 
 
 
-       !!dx=0.3d0       
-       !!dy=dx
-       !!dz=dx 
-
-         ! method =2
-         ! n_a=7
-         ! n_b=6
-
-
-                  !!xmn=-(dble(npvec)-one)/2.d0*dx  
-                  !!     
-                  !!do ii=1,npvec
-                  !!rgd(ii)=xmn+(dble(ii)-one)*dx
-                  !!enddo
-     
-
-   
-                  !!ymn=-(dble(ntheta)-one)/2.d0*dy 
- 
-                  !!do jj=1,ntheta                                    !! TEST FOR CCG GRID
-                  !!tgd(jj)=ymn+(dble(jj)-one)*dy
-                  !!enddo
-
- 
-                  !!zmn=-(dble(nphi)-one)/2.d0*dz 
-
-                  !!do kk=1,nphi
-                  !!pgd(kk)=zmn+(dble(kk)-one)*dz
-                  !!enddo
-
-
-
-      
-
-       
-
-
-
-
-
-
-
-
-
-        
          call gauleg(r_min,r_max,npvec,rgd,mwr)
          call gauleg(theta_min,theta_max,ntheta,tgd,mwt)      
          call gauleg(phi_min,phi_max,nphi,pgd,mwp)
@@ -448,19 +403,6 @@
         px = rgd(ip)*sin(tgd(ith))*cos(pgd(iph))
         py = rgd(ip)*sin(tgd(ith))*sin(pgd(iph))
         pz = rgd(ip)*cos(tgd(ith))
-      !!!!!r_r= sqrt((px*px)+(py*py)+(pz*pz))
-      !!r_r=rgd(ip)
-      !!theta=tgd(ith)
-      !!phi=pgd(iph)
-
-       !!px=rgd(ip)
-       !!py=tgd(ith)                  !! TSET FOR CCG GRID
-       !!pz=pgd(iph)
-
-
-       !! write(*,*) px,py,pz,r_r
-
-
 
 
 
@@ -486,18 +428,6 @@
            grad_density_z(1,i)=res1_diff_z
 
 
-          !! write(*,*)  real(grad_density_x(0,i)),real(density(0,i)) 
-
-          !!modsq_grad_density(0,i)=abs(grad_density_x(0,i)*grad_density_x(0,i))+&
-          !!&abs(grad_density_y(0,i)*grad_density_y(0,i))+abs(grad_density_z(0,i)*grad_density_z(0,i))
-
-          !!write(*,*) modsq_grad_density(0,i),density(0,i)
-
-      !modsq_grad_density(0,i)=abs(grad_density_x(0,i)*grad_density_x(0,i))+&
-      !&abs(grad_density_y(0,i)*(1.d0/rgd(ip))*grad_density_y(0,i)*(1.d0/rgd(ip)))+&
-      !&abs(grad_density_z(0,i)*(1.d0/(rgd(ip)*sin(tgd(ith))))*grad_density_z(0,i)*(1.d0/(rgd(ip)*sin(tgd(ith)))))
-
-
 
 
        modsq_grad_density(0,i)=abs(grad_density_x(0,i)*grad_density_x(0,i))+&
@@ -509,8 +439,6 @@
 
           
            I_integrand(0,i)=modsq_grad_density(0,i)/density(0,i)
-            !!write(*,*) real(I_integrand(0,i))
-           !end if
 
            if (rpflag==2) then
             
@@ -601,112 +529,7 @@
                 c_e_s_position_1= final_res_18*exp(final_res_10)
 
 
-
-                  
-             !write(*,*) "FISHER INFORMATION IN POSITION SPACE :" ,final_res_15,final_res_13
-             !write(*,*) "SHANON INFORMATION IN POSITION SPACE :" ,final_res_0 , final_res_10
-             !write(*,*) "ONICESCU INFORMATION ENERGY IN POSITION SPACE:",final_res_17,final_res_18
-             !write(*,*) c_i_s_position_n,c_i_s_position_1, c_e_s_position_n, c_e_s_position_1
-          
-
-
                 end if
-
-
-
-
-        !!                 if(rpflag==1) then
-        !!                 idx=1 
-        !!                 do r_index=1,(npvec)
-        !!                 I_theta=zero 
-        !!                 sresth=zero
- 
-        !!                 do theta_index=1 ,ntheta   
-        !!                 I_phi=zero
-        !!                 sresphi=zero
-
-        !!                 do phi_index=1,nphi
-        !!                 I_phi=I_phi+(real(I_integrand(0,idx))*dx)
-        !!                 sresphi=sresphi-1.d0*(dx*real(density(0,idx))*log(real(density(0,idx))))
-        !!                 idx=idx+1
-        !!                 end do                                          !! TEST FOR CCG GRID IN POSITION GRID
-
-        !!                 I_theta=I_theta + ((I_phi)*dy)
-
-        !!                 sresth=sresth + (dy*sresphi)
-        !!                    
-        !!                 nd do
-        !!                 !  write(*,*) I_theta
-        !!                 _r= I_r+ ((I_theta)*dz)
-        !!                 m8=rm8+(sresth*dz) 
-
-
-
-        !!                 !  I_r=((I_theta)*(rgd(r_index)**2.d0))
-        !!                 ! write(*,*) I_r
-        !!                 end do 
-        !!                   write(*,*) "FISHER INFORMATION :" ,I_r
-        !!                   write(*,*) "SHANON INFORMATION :" ,rm8 
-
-        !!                 end if
-
-
-
-
-        !!            if (rpflag==2) then
-        !!          idx=1 
-        !!            do r_index=1,npvec
-        !!              resth=zero
-        !!              sresth=zero
-
-        !!             do theta_index=1 ,ntheta   
-        !!              resphi=zero                               !! TEST FOR CCG GRID IN MOMENTUM SPACE
-        !!              sresphi=zero
-
-        !!              do phi_index=1,nphi
-        !!              resphi=resphi+(dx*real(density(0,idx))*p_sqr(idx))
-        !!              sresphi=sresphi-1.d0*(dx*real(density(0,idx))*log(real(density(0,idx))))
-        !!              idx=idx+1
-        !!              end do
- 
-        !!            resth=resth + (dy*resphi)
-        !!            sresth=sresth + (dy*sresphi)
-        !!            end do
-
-        !!                rm5=rm5+(dz*resth)
-        !!                rm8=rm8+(dz*sresth) 
-        !!              
-        !!           end do 
-        !!             
-        !!                 write(*,*) "KE TOPIC" ,rm5/2.0d0
-        !!                 write(*,*) "SHANON INFO",rm8
-   
-        !!             end if
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -774,14 +597,6 @@
                    density,&
                         mwp )
 
-
-     !!  if ( rpflag==1) then
-
-     !!     final_res_0 = rm8
-     !!     final_res_12 =rm3
-     !!     final_res_10 = (final_res_0/final_res_12) + log(final_res_12)
-     !!    !! write(*,*) final_res_0
-     !!  end if 
          
         if (rpflag==2) then
         final_res_1 =(2.0d000)*rm1 
@@ -804,26 +619,9 @@
 
  
 
-
-       !!write(*,*) "SHANNON IN MOMENTUM SPACE :", final_res_8,final_res_11
-       !!write(*,*) "FISHER IN MOMENTUM SPACE  :",final_res_16,final_res_14
-       !!write(*,*) "ONICESCU INFORMATION ENERGY IN MOMENTUM SPACE:",final_res_19,final_res_20
- 
-       !!write(*,*)  c_i_s_momentum_n,c_i_s_momentum_1,c_e_s_momentum_n, c_e_s_momentum_1
-
- 
         end if 
 
  
-       !!!if (rpflag==1)then
-        !!final_res_10 = (final_res_0/final_res_3) + log(final_res_3)
-        !! write(*,*) final_res_10
-        !! end if
-         
-         
-        !  write(*,*) final_res_0,final_res_12 
-
-
           call itime (time)
           call idate (date)
 
