@@ -4,7 +4,7 @@ As a clear instruction, this code provides no further scripts to generate the in
  
 
 
-**One may use this script to execute information and complexity for atoms or molecules (As an example {B3LYP,6-311G**} basis and functional are included for a test run)  
+One may use this script to execute information and complexity for atoms or molecules (As an example {B3LYP,6-311G**} basis and functional are included for a test run)  
 Input files are as follows  
 
 1) cmatup.dat** (AO/MO, DFT/HF)  
@@ -22,7 +22,7 @@ Input files are as follows
   
   
   
-For unrestricted calculations both files (up and down) are necessary, but for restricted cases, one can use any one of them (up or down).    
+**For unrestricted calculations both files (up and down) are necessary, but for restricted cases, one can use any one of them (up or down).    
  
 Install Open MP, then provide the Num of CPUs and the maximum number of CPUs   
 
