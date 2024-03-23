@@ -5,27 +5,29 @@ As a clear instruction, this code provides no further scripts to generate the se
 
 
 One may use this script to execute information and complexity for atoms or molecules (As an example {B3LYP,6-311G**} basis and functional are included for a test run).\
-Needed Input files::  1) cmatup.dat** (AO/MO, DFT/HF)\
-                      2) cmatdw.dat** (AO/MO, DFT/HF)\             
-                      3) geo.dat\
-                      4) lmn.dat\
-                      5) alpha beta method.dat\
-                      6) noa npg noc norb.dat\
-                      7) grid point.dat\
-                      8) atomic number.dat\
-                      9) npg1.dat\
-                      10 )exponent.dat\
-                      11) precoef.dat\
-                      12) CPU.text\ 
+Input files are as follows\  
 
-
-
- For unrestricted calculations both files (up and down) are necessary, but for restricted cases, one can use any one of them (up or down).  
+1) cmatup.dat** (AO/MO, DFT/HF)\
+2) cmatdw.dat** (AO/MO, DFT/HF)\
+3) geo.dat\
+4) lmn.dat\
+5) alpha beta method.dat\
+6) noa npg noc norb.dat\
+7) grid point.dat\
+8) atomic number.dat\
+9) npg1.dat\
+10) exponent.dat\
+11) precoef.dat\
+12) CPU.text\ 
+\
+\
+\
+For unrestricted calculations both files (up and down) are necessary, but for restricted cases, one can use any one of them (up or down).\  
  
-Install Open MP, then provide Num of CPUs and the maximum number of CPUs 
+Install Open MP, then provide the Num of CPUs and the maximum number of CPUs\ 
 
-gfortran -O3 -fopenmp -o emd atom parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss legendre.f90 main cal.f90 
-
+Commands to run/
+gfortran -O3 -fopenmp -o emd atom parallel psix.f90 basisfn.f90 cinorm.f90 factor.f90 gauss legendre.f90 main cal.f90 / 
 ./emd atom parallel
 
 
